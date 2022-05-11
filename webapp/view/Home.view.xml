@@ -1,0 +1,74 @@
+<mvc:View controllerName="FirstApp.controller.Home" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<f:SimpleForm id="SimpleFormToolbar" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+						labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+						singleContainerFullSize="false" ariaLabelledBy="Title1">
+						<f:content>
+							<Label text="Employee Id"/>
+							<Input value="" type="Number" id="empId"/>
+							<Label text="Name"/>
+							<Input value="" type="Text" id="empName"/>
+							<Label text="Designation"/>
+							<Input value="" type="Text" id="empPos" />
+							<Label text="DOJ"/>
+							<DatePicker id="empDoj" valueFormat="dd.MM.yyyy" placeholder="Select DOJ" displayFormat="long" change="handleChange"
+								class="sapUiSmallMarginBottom"/>
+							<Label text="Salary" />
+							<Input value="" type="Number" id="empSal"/>
+						</f:content>
+					</f:SimpleForm>
+					<FlexBox justifyContent="Center">
+						<HBox>
+							<Button type="Accept" text="Save" press="onSave"/>
+							<Button type="Reject" text="Clear" press="onClear"/>
+							<Button type="Default" text="Next" press="onClear"/>
+						</HBox>
+					</FlexBox>
+					<html:hr></html:hr>
+					<Table id="empdetails" items="{/}">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title id="title" text="Display Employee Details"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Label text="Employee ID"/>
+							</Column>
+							<Column>
+								<Label text="Employee Name"/>
+							</Column>
+							<Column>
+								<Label text="Designation"/>
+							</Column>
+							<Column>
+								<Label text="Date Of Joining"/>
+							</Column>
+							<Column>
+								<Label text="Salary"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{empId}"/>
+									<Text text="{empName}"/>
+									<Text text="{empPos}"/>
+									<Text text="{empDoj}"/>
+									<Text text="{empSal}"/>
+									
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					<html:br></html:br>
+					
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
